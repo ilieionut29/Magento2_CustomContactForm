@@ -1,0 +1,52 @@
+<?php
+/* @var $block Vendor\CustomContactForm\Block\Contact */
+?>
+
+<form action="<?php echo $block->getFormAction() ?>" id="custom-contact" method="post"
+      class="custom-contact" data-mage-init='{"validation":{}}'>
+    <input name="form_key" type="hidden" value="<?= $block->getFormKey() ?>"/>
+    <div class="form-title">
+        <?= $block->escapeHtml(__('Some text here!')) ?>
+    </div>
+    <fieldset class="contact-fieldset">
+        <div class="field full-name required">
+            <label class="label" for="name"> <?= $block->escapeHtml(__('Name')) ?> </label>
+            <div class="control">
+                <input type="text" name="name" id="name" title="<?= $block->escapeHtmlAttr(__('Name')) ?>" 
+                       class="text-input" data-validate="{required: true, minlength: 3}" />
+            </div>
+        </div>
+
+        <div class="field email required">
+            <label class="label" for="email"> <?= $block->escapeHtml(__('Email')) ?> </label>
+            <div class="control">
+                <input type="email" name="email" id="email" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" 
+                       class="text-input" data-validate="{required: true, 'validate-email': true}" />
+            </div>
+        </div>
+
+        <div class="field phone-number required">
+            <label class="label" for="phone-number"> <?= $block->escapeHtml(__('Phone number')) ?> </label>
+            <div class="control">
+                <input type="number" name="phone-number" id="phone-number" title="<?= $block->escapeHtmlAttr(__('Phone number')) ?>" 
+                       class="text-input" data-validate="{required: true}" />
+            </div>
+        </div>
+
+        <div class="field city required">
+            <label class="label" for="city"> <?= $block->escapeHtml(__('City')) ?> </label>
+            <div class="control">
+                <input type="text" name="city" id="city" title="<?= $block->escapeHtmlAttr(__('City')) ?>" 
+                       class="text-input" data-validate="{required: true, minlength: 3}" />
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Submit')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
